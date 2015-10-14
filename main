@@ -1,0 +1,4 @@
+pyvenv ./.build/pyvenv
+source ./.build/pyvenv/bin/activate
+pip install tox
+tox
