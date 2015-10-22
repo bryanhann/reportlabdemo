@@ -1,3 +1,7 @@
+if [ ! "$0" == "./main" ]; then
+    echo usage: ./main
+    exit
+fi
 pyvenv ./.build/pyvenv
 source ./.build/pyvenv/bin/activate
 pip install tox
