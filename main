@@ -4,7 +4,6 @@ if [ ! "$0" == "./main" ]; then
 fi
 pyvenv ./.build/pyvenv
 source ./.build/pyvenv/bin/activate
-tox
 pip install reportlab
 python ./main.py
 bash
