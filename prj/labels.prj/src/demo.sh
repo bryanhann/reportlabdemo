@@ -2,8 +2,8 @@
 [ "$0" == "./demo.sh" ] || exit
 pyvenv tmp/pyvenv
 source tmp/pyvenv/bin/activate
-pip install -r src/pip.require
+pip install -r pip.require
 cd tmp
-python ../src/main.py
+python ../main.py
 open deleteme.pdf
 cd ..
