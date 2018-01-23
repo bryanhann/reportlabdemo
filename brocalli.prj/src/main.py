@@ -1,7 +1,9 @@
+import sys
 import reportlab
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter, A4
 width, height = A4 
+
 OUTPUT='output.pdf'
 
 class Move:
@@ -13,12 +15,10 @@ class Move:
         self.zy=zy
         self.theta=theta
     def __enter__(self):
-#        print( self.dx, self.dy )
         self.canvas.translate(self.dx, self.dy)
         self.canvas.scale(self.zx, self.zy)
         self.canvas.rotate(self.theta)
     def __exit__(self, aType, aValue, aTraceback):
-#        print( -self.dx, -self.dy )
         self.canvas.rotate(-self.theta)
         self.canvas.scale(1.0/self.zx, 1.0/self.zy)
         self.canvas.translate(-self.dx, -self.dy)
@@ -42,8 +42,13 @@ def bush(n=0):
         bush(n)
     c.line(0,0,20,0)
 
-c.translate(width/2, height/2)
-bush(14)
-c.showPage()
-c.save()
-print('canvas saved to %s' % OUTPUT) 
+def main():
+    c.translate(width/2, height/2)
+    bush(14)
+    c.showPage()
+    c.save()
+    print('canvas saved to %s' % OUTPUT) 
+
+
+if __name__ == "__main__":
+    main()
